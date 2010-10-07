@@ -1,0 +1,431 @@
+/**
+ * Newsfeed css styles
+ *
+ * @package		Newsfeed
+ * @author  	Mark Croxton
+ * @copyright	Copyright (c) 2008 Hallmark Design, http://www.hallmark-design.co.uk/
+ * @version 	v1.05, 11.11.2009
+ */
+
+.newsfeed .ui-tabs-nav li, .newsfeed .ui-tabs-panel li {
+	padding:0 ! important;
+	margin:0 ! important;
+}
+
+.newsfeed h2 {
+	border-bottom: none;
+	color: white;
+	margin-bottom: 0 ! important;
+	padding: 5px 10px 5px 15px;
+	background: transparent url('../img/newsfeed/headline_bg.png') 0 0 repeat-x ! important;
+	font-size: 1.2em;
+}
+
+/* Caution! Ensure accessibility in print and other media types... */
+@media projection, screen { /* Use class for showing/hiding tab content, so that visibility can be better controlled in different media types... */
+    .ui-tabs-hide {
+        display: none;
+    }
+}
+
+/* Hide useless elements in print layouts... */
+@media print {
+    .ui-tabs-nav {
+        display: none;
+    }
+}
+
+/* UI skin */
+.ui-tabs-nav {
+	background: #E2F0FC url('../img/newsfeed/tabs_bg.png') 0 0 repeat-x;
+	position: relative;
+}
+.ui-tabs-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 0;
+	height:25px;
+	overflow: hidden;
+}
+.ui-tabs-nav:after { /* clearing without presentational markup, IE gets extra treatment */
+    display: block;
+    clear: both;
+    content: " ";
+}
+.ui-tabs-nav li {
+    float: left;
+    margin: 0 0 0 1px;
+    min-width: 110px; /* be nice to Opera */
+	border-right: 1px solid #95B9D9;
+	position: relative;
+	background: transparent url('../img/newsfeed/tabs_bg.png') 0 0 repeat-x ! important;
+}
+
+* html .ui-tabs-nav li {
+	width: 110px;
+}
+
+.ui-tabs-nav a.nf-deletefeed {
+	position:absolute;
+	right:8px;
+	top:6px;
+	padding: 0;
+	width: 13px;
+	height:13px;
+	background: transparent url('../img/newsfeed/delete_btn.png') -13px 0 no-repeat;
+}
+
+* html .ui-tabs-nav a.nf-deletefeed {
+	background-image: url('../img/newsfeed/delete_btn_ie.gif');
+}
+
+.ui-tabs-nav li.nf-addfeed {
+	display:block;
+	position: absolute;
+	right: 0;
+	top: 0;
+	border-left: 1px solid #95B9D9;
+	border-right: none;
+	min-width: 68px;
+	z-index: 10000;
+}
+* html .ui-tabs-nav li.nf-addfeed {
+	margin-right: -1px;
+	width: 68px;
+}
+
+li.nf-addfeed a {
+	display:block;
+	width: 53px;
+	padding-right: 0;
+	background: transparent url('../img/newsfeed/add_btn.png') 47px -24px no-repeat;
+}
+
+* html li.nf-addfeed a {
+	background-image: url('../img/newsfeed/add_btn_ie.gif');
+}
+
+li.nf-addfeed a:focus, li.nf-addfeed a:active, li.nf-addfeed a:hover {
+	background-position: 47px -54px;
+}
+
+.ui-tabs-nav li.nf-addfeed.ui-tabs-selected a, li.nf-addfeed.ui-tabs-selected a:focus, li.nf-addfeed.ui-tabs-selected a:active, li.nf-addfeed.ui-tabs-selected a:hover {
+	background-color: #E2F0FC;
+	background-position: 47px -24px;
+}
+
+.ui-tabs-nav a {
+	display: block;
+    margin: 0;
+    padding: 0 30px 0 15px;
+    color: #27537A;
+    font-weight: bold;
+    line-height: 25px;
+    text-align: left;
+    text-decoration: none;
+    white-space: nowrap; /* required in IE 6 */    
+    outline: 0; /* prevent dotted border in Firefox */
+	color: #334D73;
+}
+.ui-tabs-nav .ui-tabs-selected a {
+   	color: #1C2C49;
+	background-color: #E2F0FC;
+}
+
+.ui-tabs-nav a:focus, 
+.ui-tabs-nav a:active, 
+.ui-tabs-nav a:hover {
+   	color: #1C2C49;
+}
+
+.ui-tabs-nav .ui-tabs-selected a.nf-deletefeed {
+	background-position: 0 0;
+}
+
+.ui-tabs-nav a.nf-deletefeed:focus, 
+.ui-tabs-nav a.nf-deletefeed:active, 
+.ui-tabs-nav a.nf-deletefeed:hover {
+	background-position: -26px 0;
+}
+
+.ui-tabs-nav .ui-tabs-selected a.nf-deletefeed:focus, 
+.ui-tabs-nav .ui-tabs-selected a.nf-deletefeed:active, 
+.ui-tabs-nav .ui-tabs-selected a.nf-deletefeed:hover {
+	background-position: -13px 0;
+}
+
+.ui-tabs-panel {
+    padding: 15px 0 0 0;
+    background: #E2F0FC; /* declare background color for container to avoid distorted fonts in IE while fading */
+	color: #566E91;
+	position: relative;
+}
+.ui-tabs-loading em {
+    padding: 0 0 0 20px;
+    background: url(loading.gif) no-repeat 0 50%;
+}
+
+/* Additional IE specific bug fixes... */
+* html .ui-tabs-nav { /* auto clear, @ IE 6 & IE 7 Quirks Mode */
+    display: inline-block;
+}
+*:first-child+html .ui-tabs-nav  { /* @ IE 7 Standards Mode - do not group selectors, otherwise IE 6 will ignore complete rule (because of the unknown + combinator)... */
+    display: inline-block;
+}
+
+.ui-tabs-panel ul {
+	padding: 0 0 25px 0 ! important;
+	margin: 0 ! important;
+}
+
+.ui-tabs-panel li {
+	display: block;
+	background: #E2F0FC;
+	border: 1px solid #E2F0FC;
+	border-width: 1px 0 1px 0;
+	padding: 0 ! important;
+}
+
+.ui-tabs-panel li a.nf-link {
+	padding: 5px 15px 5px 15px ! important;
+}
+
+.ui-tabs-panel li:hover {
+	cursor: pointer;
+}
+
+.ui-tabs-panel li a.nf-link {
+	display: block;
+	text-decoration: none;
+}
+
+.ui-tabs-panel li a img {
+	border: none;
+}
+
+.ui-tabs-panel li a span {
+	display: block;
+}
+
+.ui-tabs-panel li a strong {
+	font-size: 1.08333em;
+	display: block;
+}
+
+.ui-tabs-panel li a.nf-link:link strong {
+	color: #347BD3;
+}
+
+.ui-tabs-panel li a.nf-link:link span {
+	color: #345186;
+}
+
+.ui-tabs-panel li a.nf-link:visited strong {
+	color: #7791BB;
+}
+
+.ui-tabs-panel li a.nf-link:visited span {
+	color: #8497B1;
+}
+
+.ui-tabs-panel li a.nf-link:focus strong, 
+.ui-tabs-panel li a.nf-link:active strong, 
+.ui-tabs-panel li a.nf-link:hover strong {
+	color: #1B4578;
+}
+
+.ui-tabs-panel li a.nf-link:focus span, 
+.ui-tabs-panel li a.nf-link:active span, 
+.ui-tabs-panel li a.nf-link:hover span {
+	color: #1B4578;
+}
+
+.ui-tabs-panel li img {
+	float: left;
+	clear: left;
+}
+
+/* display style 1 */
+.ui-tabs-panel li.display-1 strong, 
+.ui-tabs-panel li.display-1 span.desc {
+	display: block;
+	margin-left: 60px;
+}
+
+/* display style 3 */
+.ui-tabs-panel li.display-3 span {
+	float: left;
+	width: 18em;
+}
+
+.ui-tabs-panel li.display-3 a.nf-link span {
+	font-size: 1.08333em;
+}
+
+.ui-tabs-panel li.display-3 a.nf-link:link span {
+	color: #496A93;
+}
+
+.ui-tabs-panel li.display-3 a.nf-link:visited span {
+	color: #8497B1;
+}
+
+.ui-tabs-panel li.display-3 a.nf-link:focus span, 
+.ui-tabs-panel li.display-3 a.nf-link:active span, 
+.ui-tabs-panel li.display-3 a.nf-link:hover span {
+	color: #1B4578;
+}
+
+.ui-tabs-panel li.display-3 strong {
+	margin-left: 15.5em;
+}
+
+/* frm-add */
+.nf-frm-add, .nf-frm-add fieldset {
+	width: 459px;
+	margin:0;
+	padding:0;
+	border: 0;
+	display: block;
+}
+
+.nf-frm-add fieldset label {
+	padding:0;
+	margin:0;
+}
+
+.nf-frm-add {
+	padding:0 15px 1px 15px;
+}
+
+.nf-frm-add .col-a {
+	width: 200px;
+	float: left;
+}
+
+.nf-frm-add .col-b {
+	width: 232px;
+	float: right;
+}
+
+.nf-frm-add label {
+	font-size: .92em;
+	padding:1px;
+}
+
+.nf-frm-add input, .nf-frm-add select  {
+	display: block;
+	color: #1B4578;
+}
+
+.nf-frm-add input.txt, .nf-frm-add select {
+	border: 1px solid #B2CDEE;
+	padding: 2px;
+}
+
+#feedurl {
+	float: left;
+	width: 200px;
+}
+
+.nf-frm-add input.img {
+	float: right;
+}
+
+#feedtitle, #feeddisplay, #feedcount, #feedrefresh {
+	width: 100%;
+}
+
+#feedtitle, #feedurl {
+	font-weight: bold;
+}
+
+.nf-frm-add fieldset.drawer {
+	padding-top: 15px;
+}
+	
+/* Drawer */
+.drawer .col-b label {
+	width: 38.3%;
+	display: block;
+	float: left;
+	padding-right: 27px  ! important;
+}
+
+.drawer-btn {
+	padding: 15px 0 0 0;
+}
+
+.drawer-btn a {
+	display: block;
+	background: transparent url('../img/newsfeed/more_btn.png') 0 2px no-repeat;
+	padding-left: 18px;
+	color: #566E91;
+	text-decoration: none;
+	font-size: .92em;
+	margin-bottom: 15px;
+	width: 90px;
+}
+
+.drawer-btn a:hover {
+	color: #1B4578;	
+	background-position: 0 -44px;
+}
+
+.drawer-btn a.active {
+	background-position: 0 -21px;
+}
+
+.drawer-btn a.active:hover {
+	background-position: 0 -67px;
+}
+
+/* Edit feed button */
+a.nf-editfeed, a.nf-locked {
+	display: block;
+	width: 13px; height: 13px;
+	position: absolute;
+	right: 8px;
+	bottom: 8px;
+	background: transparent url('../img/newsfeed/info_btn.png') 0 0 no-repeat;
+	cursor: pointer;
+}
+
+a.nf-locked {
+	background: transparent url('../img/newsfeed/lock_btn.png') 0 0 no-repeat;
+}
+
+a.nf-editfeed:focus, a.nf-editfeed:active, a.nf-editfeed:hover {
+	background-position: 0 -16px;
+}
+
+/* loading */
+.nf-loading {
+	width: 16px;
+	height: 16px;
+	background: #E2F0FC url('../img/newsfeed/loading.gif') 15px 15px no-repeat;
+	padding: 15px;
+}
+
+/* error message */
+.nf-error {
+	padding: 0 15px 15px 15px;
+	margin: 0 ! important;
+}
+
+/* float clear fix for wrapping elements */
+ul#tabs:after, .ui-tabs-panel li a.nf-link:after, .col-a:after, .col-b:after, .nf-frm-add:after, .nf-frm-add fieldset:after {
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+
+/* ie6 */
+* html ul#tabs, * html .ui-tabs-panel li, * html .ui-tabs-panel li a.nf-link, * html .col-a, * html .col-b, * html .nf-frm-add, * html .nf-frm-add fieldset { height: 1%; }
+
+/* ie7-8 */
+ul#tabs, .ui-tabs-panel li, .ui-tabs-panel li a.nf-link, .col-a, .col-b, .nf-frm-add, .nf-frm-add fieldset {
+	min-height: 1px;
+}

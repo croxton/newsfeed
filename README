@@ -1,0 +1,20 @@
+Newsfeed widget (jQuery plugin)
+-------------------------------
+
+Demo:
+http://www.hallmark-design.co.uk/newsfeed/
+
+This plugin converts a simple unordered list into a tabbed newsfeed widget, and allows users to add their own feeds.
+
+Features:
+
+* One or multiple news feeds arranged as separate tabs.
+* Define default tabs with locked pre-selected feeds as a simple unordered list
+* Define individual feed preferences (update frequency, number of items, display style)
+* Allows user to create tabs or make completely locked.
+* User can add new RSS/Atom feeds and delete unwanted tabs by clicking on the tab close button (if not locked)
+* Feed auto-discovery - user can enter a website address and the script will find feeds on the page
+* Keyword/phrase searches can be used to generate an aggregate feed tab on the fly (eg: "Cricket")
+* User-customisable options to set feed refresh frequency, number of items displayed and feed display style, on a per-feed basis.
+* The user's tabs and user preferences are remembered with a cookie.
+* Multiple newsfeed widgets per page
